@@ -1,0 +1,13 @@
+npm-debug.log
+node_modules
+vendor
+composer.lock
+php/phpdoc-cache*
+bower_components/**/*.json
+bower_components/**/gruntfile*
+bower_components/**/LICENSE
+bower_components/**/README*
+bower_components/**/*.md
+bower_components/**/.*
+bower_components/**/*.less
+bower_components/**/*.sass

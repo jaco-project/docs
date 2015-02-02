@@ -1,0 +1,25 @@
+{
+  "name": "jaco-docs",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Documents of jaco",
+  "main": "index.html",
+  "scripts": {
+    "init": "composer install",
+    "start": "rm -fr 'js/'; ./node_modules/.bin/typedoc --mode modules --out 'js/' 'lib/js/src/index.ts'; rm -fr 'php/'; ./vendor/bin/phpdoc -d 'lib/php/lib/jaco/' -t 'php/';"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jaco-project/docs.git"
+  },
+  "author": "YusukeHirao",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jaco-project/docs/issues"
+  },
+  "homepage": "https://jaco-project.github.io/docs/",
+  "dependencies": {
+    "typedoc": "^0.2.2",
+    "typescript": "^1.4.1"
+  }
+}
