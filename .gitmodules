@@ -1,6 +1,6 @@
-[submodule "lib/php"]
-	path = lib/php
-	url = https://github.com/jaco-project/jaco-php.git
 [submodule "lib/js"]
 	path = lib/js
 	url = https://github.com/jaco-project/jaco-js.git
+[submodule "lib/php"]
+	path = lib/php
+	url = https://github.com/jaco-project/jaco-php.git
