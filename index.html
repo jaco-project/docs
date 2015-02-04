@@ -9,45 +9,8 @@
 </head>
 <body role="document">
 
-<main class="container-fluid">
-<article id="main-content">
-
-# ![jaco](jaco.svg)
-
-Japanise Character Optimizer
-
-## JavaScript Library
-
-[Document](./js/)
-
-```sh
-npm install jaco
-
-# for CLI
-npm install -g jaco
-```
-
-```html
-<script type="text/javascript" src="jaco.js"></script>
-```
-
-## [WIP] PHP Library
-
-[Document](./php/) **WORK IN PROGRESS**
-
-```json
-{
-	"require": {
-		"jaco/Jaco": "2.*"
-	}
-}
-```
-
-```sh
-composer install
-```
-
-</article>
+<main class="container">
+	<article id="main-content" data-content="readme.md"><!-- ajax content --></article>
 </main>
 
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
@@ -55,11 +18,18 @@ composer install
 <script src="bower_components/marked/marked.min.js"></script>
 <script>
 (function() {
-	'use strict';
 
-	var $mainContent = document.getElementById('main-content');
+'use strict';
 
-	$mainContent.innerHTML = marked($mainContent.innerHTML);
+var $mainContent = $('#main-content');
+
+$.ajax({
+	url: $mainContent.data('content'),
+	dataType: 'text'
+}).done(function(text) {
+	$mainContent.html(marked(text));
+});
+
 }());
 </script>
 
