@@ -66,11 +66,25 @@
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
 				<h1 id="jaco">jaco</h1>
-				<p>Japanese character converter.</p>
+				<p>Japanese Character Optimizer.</p>
 				<p><a href="http://badge.fury.io/js/jaco"><img src="https://badge.fury.io/js/jaco.svg" alt="NPM version"></a>
-					<a href="https://travis-ci.org/YusukeHirao/jaco"><img src="https://travis-ci.org/YusukeHirao/jaco.svg" alt="Build Status"></a>
-					<a href="https://david-dm.org/YusukeHirao/jaco"><img src="https://david-dm.org/YusukeHirao/jaco.svg" alt="Dependency Status"></a>
-				<a href="https://david-dm.org/YusukeHirao/jaco#info=devDependencies"><img src="https://david-dm.org/YusukeHirao/jaco/dev-status.svg" alt="devDependency Status"></a></p>
+					<a href="https://travis-ci.org/jaco-project/jaco-js"><img src="https://travis-ci.org/jaco-project/jaco-js.svg" alt="Build Status"></a>
+					<a href="https://david-dm.org/jaco-project/jaco-js"><img src="https://david-dm.org/jaco-project/jaco-js.svg" alt="Dependency Status"></a>
+				<a href="https://david-dm.org/jaco-project/jaco-js#info=devDependencies"><img src="https://david-dm.org/jaco-project/jaco-js/dev-status.svg" alt="devDependency Status"></a></p>
+				<h2 id="what-is">What is</h2>
+				<p>This module optimize Japanese characters.</p>
+				<p>Convert to Katakana from Hiragana mutually, or sort list by natural phonetic order, or convert to halfwidth from fullwidth mutually.</p>
+				<h2 id="functions">functions</h2>
+				<ul>
+					<li>Convert Hiragana &lt;-&gt; Katakana</li>
+					<li>Convert halfwidth &lt;-&gt; fullwidth</li>
+					<li>Check Hiragana, Katakana, halfwidth, fullwidth, and so on.</li>
+					<li>Sort by natural phonetic order.<ul>
+							<li>Supported voiced marks, prolonged sound marks, iteration marks.</li>
+						</ul>
+					</li>
+					<li>Has compatible native string object API.</li>
+				</ul>
 				<h2 id="install">install</h2>
 				<h3 id="for-browser">for browser</h3>
 				<pre><code class="lang-sh">$ bower install jaco
@@ -85,21 +99,21 @@
 				<h3 id="for-browser">for browser</h3>
 				<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"jaco.min.js"</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
-jaco.katakanize(<span class="hljs-string">'ニホンゴのモジなど'</span>); <span class="hljs-comment">// =&gt; ニホンゴノモジ</span>
-jaco.hiraganize(<span class="hljs-string">'ニホンゴのモジなど'</span>); <span class="hljs-comment">// =&gt; にほんごのもじ</span>
+jaco.katakanize(<span class="hljs-string">'ニホンゴのモジなど'</span>); <span class="hljs-comment">// =&gt; ニホンゴノモジナド</span>
+jaco.hiraganize(<span class="hljs-string">'ニホンゴのモジなど'</span>); <span class="hljs-comment">// =&gt; にほんごのもじなど</span>
 
 <span class="hljs-keyword">var</span> jStr01 = <span class="hljs-keyword">new</span> jaco.Jaco(<span class="hljs-string">'ニホンゴのモジなど'</span>);
-jStr01.toKatakana(); <span class="hljs-comment">// =&gt; ニホンゴノモジ</span>
+jStr01.toKatakana(); <span class="hljs-comment">// =&gt; ニホンゴノモジナド</span>
 </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre>
 				<h3 id="for-nodejs">for NodeJS</h3>
 				<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> jaco = <span class="hljs-built_in">require</span>(<span class="hljs-string">'jaco'</span>);
 
-jaco.katakanize(<span class="hljs-string">'ニホンゴのモジなど'</span>); <span class="hljs-comment">// =&gt; ニホンゴノモジ</span>
-jaco.hiraganize(<span class="hljs-string">'ニホンゴのモジなど'</span>); <span class="hljs-comment">// =&gt; にほんごのもじ</span>
+jaco.katakanize(<span class="hljs-string">'ニホンゴのモジなど'</span>); <span class="hljs-comment">// =&gt; ニホンゴノモジナド</span>
+jaco.hiraganize(<span class="hljs-string">'ニホンゴのモジなど'</span>); <span class="hljs-comment">// =&gt; にほんごのもじなど</span>
 
 <span class="hljs-keyword">var</span> jStr01 = <span class="hljs-keyword">new</span> jaco.Jaco(<span class="hljs-string">'ニホンゴのモジなど'</span>);
-jStr01.toKatakana(); <span class="hljs-comment">// =&gt; ニホンゴノモジ</span>
+jStr01.toKatakana(); <span class="hljs-comment">// =&gt; ニホンゴノモジナド</span>
 </code></pre>
 				<h3 id="cli">CLI</h3>
 				<pre><code><span class="hljs-attribute">Usage</span>: <span class="hljs-string">jaco [options] &lt;string&gt; [fileOption] &lt;path&gt;</span>
@@ -131,6 +145,18 @@ jStr01.toKatakana(); <span class="hljs-comment">// =&gt; ニホンゴノモジ</
 						<tr>
 							<td><a href="http://yusukehirao.github.io/jaco/docs/modules/jaco.html#hiraganize">hiraganize</a></td>
 							<td><code>string</code></td>
+						</tr>
+						<tr>
+							<td>hiraganaOnly</td>
+							<td><code>boolean</code></td>
+						</tr>
+						<tr>
+							<td>katakanaOnly</td>
+							<td><code>boolean</code></td>
+						</tr>
+						<tr>
+							<td>naturalKanaSort</td>
+							<td><code>Array</code></td>
 						</tr>
 					</tbody>
 				</table>
@@ -328,10 +354,88 @@ instance.toString();
 							<td>✓</td>
 							<td>✓</td>
 						</tr>
+						<tr>
+							<td>toNarrowJapneseSymbol</td>
+							<td><code>Jaco</code></td>
+							<td>✓</td>
+							<td>✓</td>
+						</tr>
+						<tr>
+							<td>toWideJapnese</td>
+							<td><code>Jaco</code></td>
+							<td>✓</td>
+							<td>✓</td>
+						</tr>
+						<tr>
+							<td>toNarrow</td>
+							<td><code>Jaco</code></td>
+							<td>✓</td>
+							<td>✓</td>
+						</tr>
+						<tr>
+							<td>toWide</td>
+							<td><code>Jaco</code></td>
+							<td>✓</td>
+							<td>✓</td>
+						</tr>
+						<tr>
+							<td>addVoicedMarks</td>
+							<td><code>Jaco</code></td>
+							<td>✓</td>
+							<td>✓</td>
+						</tr>
+						<tr>
+							<td>addSemivoicedMarks</td>
+							<td><code>Jaco</code></td>
+							<td>✓</td>
+							<td>✓</td>
+						</tr>
+						<tr>
+							<td>removeVoicedMarks</td>
+							<td><code>Jaco</code></td>
+							<td>✓</td>
+							<td>✓</td>
+						</tr>
+						<tr>
+							<td>convertProlongedSoundMarks</td>
+							<td><code>Jaco</code></td>
+							<td>✓</td>
+							<td>✓</td>
+						</tr>
+						<tr>
+							<td>convertIterationMarks</td>
+							<td><code>Jaco</code></td>
+							<td>✓</td>
+							<td>✓</td>
+						</tr>
+						<tr>
+							<td>toBasicLetter</td>
+							<td><code>Jaco</code></td>
+							<td>✓</td>
+							<td>✓</td>
+						</tr>
+						<tr>
+							<td>hasSmallLetter</td>
+							<td><code>boolean</code></td>
+							<td>✗</td>
+							<td>✗</td>
+						</tr>
+						<tr>
+							<td>toPhoeticKana</td>
+							<td><code>Jaco</code></td>
+							<td>✓</td>
+							<td>✓</td>
+						</tr>
+						<tr>
+							<td>replaceMap</td>
+							<td><code>Jaco</code></td>
+							<td>✓</td>
+							<td>✓</td>
+						</tr>
 					</tbody>
 				</table>
 				<h2 id="documents">Documents</h2>
-				<p><a href="http://yusukehirao.github.io/jaco/">http://yusukehirao.github.io/jaco/</a></p>
+				<p><a href="http://jaco-project.github.io/docs/">http://jaco-project.github.io/docs/</a></p>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">

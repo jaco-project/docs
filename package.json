@@ -1,6 +1,6 @@
 {
   "name": "jaco-docs",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "description": "Documents of jaco",
   "main": "index.html",
@@ -19,7 +19,7 @@
   },
   "homepage": "https://jaco-project.github.io/docs/",
   "dependencies": {
-    "typedoc": "^0.2.2",
+    "typedoc": "^0.2.3",
     "typescript": "^1.4.1"
   }
 }
